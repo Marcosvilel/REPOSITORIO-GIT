@@ -1,0 +1,24 @@
+{
+"name": "meu-portfolio-fiap",
+"version": "1.0.0",
+"description": "Portfólio profissional para aluno FIAP - Análise e Desenvolvimento de Sistemas",
+"main": "index.html",
+"scripts": {
+    "start": "live-server --port=3000",
+    "build": "mkdir -p dist && cp -r index.html css js assets pages dist/",
+    "deploy": "npm run build && gh-pages -d dist"
+},
+"keywords": [
+    "portfolio",
+    "fiap",
+    "ads",
+    "desenvolvimento",
+    "web"
+],
+"author": "Seu Nome",
+"license": "MIT",
+"devDependencies": {
+    "live-server": "^1.2.2",
+    "gh-pages": "^5.0.0"
+}
+}

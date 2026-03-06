@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcos Vilela Borges- Portfólio FIAP | Análise e Desenvolvimento de Sistemas</title>
+
+    <!-- Meta Tags Avançadas para SEO -->
+    <meta name="description"
+        content="Portfólio profissional de Marcos Vilela Borges, estudante de Análise e Desenvolvimento de Sistemas na FIAP. Especializado em desenvolvimento web full-stack, com projetos em React, Node.js, Python e Java.">
+    <meta name="keywords"
+        content="FIAP, ADS, desenvolvimento de sistemas, programador, portfólio, React, Node.js, Python, Java, full-stack">
+    <meta name="author" content="Marcos Vilela Borges">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://seuportfolio.com">
+    <meta property="og:title" content="Marcos Vilela Borges - Portfólio FIAP">
+    <meta property="og:description" content="Estudante de ADS na FIAP criando soluções inovadoras em tecnologia">
+    <meta property="og:image" content="https://seuportfolio.com/assets/images/profile/thumbnail.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://seuportfolio.com">
+    <meta property="twitter:title" content="Marcos Vilela Borges - Portfólio FIAP">
+    <meta property="twitter:description" content="Estudante de ADS na FIAP criando soluções inovadoras em tecnologia">
+    <meta property="twitter:image" content="https://seuportfolio.com/assets/images/profile/thumbnail.jpg">
+
+    <!-- Fontes Premium -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/icons/favicon.png">
+
+    <!-- Bibliotecas Externas (opcional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <span>{</span>
+            <span>}</span>
+        </div>
+    </div>
+
+    <!-- Cursor Personalizado -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-follower"></div>
+
+    <!-- Header com efeito glassmorphism -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">
+                <span class="nav__logo-text">&lt;Marcos Vilela Borges/&gt;</span>
+                <span class="nav__logo-dot"></span>
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link active-link">Início</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#sobre" class="nav__link">Sobre</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#habilidades" class="nav__link">Habilidades</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#projetos" class="nav__link">Projetos</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#contato" class="nav__link">Contato</a>
+                    </li>
+                </ul>
+
+                <!-- Botão tema dark/light -->
+                <div class="nav__theme">
+                    <i class="fas fa-moon theme-icon" id="theme-button"></i>
+                </div>
+
+                <!-- Botão fechar menu mobile -->
+                <div class="nav__close" id="nav-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+
+            <!-- Botão toggle mobile -->
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <!-- ===== HOME SECTION ===== -->
+        <section class="home section" id="home">
+            <div class="home__container container grid">
+                <div class="home__content">
+                    <div class="home__badge" data-aos="fade-up">
+                        <span>👋 Bem-vindo ao meu portfólio</span>
+                    </div>
+
+                    <h1 class="home__title" data-aos="fade-up" data-aos-delay="200">
+                        Olá, eu sou <span class="text-gradient">[Marcos Vilela Borges]</span>
+                    </h1>
+
+                    <div class="home__subtitle" data-aos="fade-up" data-aos-delay="400">
+                        <span class="typed-text"></span>
+                        <span class="cursor">&nbsp;</span>
+                    </div>
+
+                    <p class="home__description" data-aos="fade-up" data-aos-delay="600">
+                        Estudante de Análise e Desenvolvimento de Sistemas na <span class="highlight">FIAP</span>,
+                        apaixonado por criar soluções inovadoras que combinam tecnologia e design.
+                    </p>
+
+                    <div class="home__buttons" data-aos="fade-up" data-aos-delay="800">
+                        <a href="#projetos" class="button button--primary">
+                            <span>Ver Projetos</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#contato" class="button button--outline">
+                            <span>Contato</span>
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+
+                    <div class="home__social" data-aos="fade-up" data-aos-delay="1000">
+                        <a href="https://github.com/seu-usuario" target="_blank" class="home__social-link">
+                            <i class="fab fa-github"></i>
+                            <span class="social-tooltip">GitHub</span>
+                        </a>
+                        <a href="https://linkedin.com/in/seu-usuario" target="_blank" class="home__social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span class="social-tooltip">LinkedIn</span>
+                        </a>
+                        <a href="https://instagram.com/seu-usuario" target="_blank" class="home__social-link">
+                            <i class="fab fa-instagram"></i>
+                            <span class="social-tooltip">Instagram</span>
+                        </a>
+                        <a href="https://twitter.com/seu-usuario" target="_blank" class="home__social-link">
+                            <i class="fab fa-twitter"></i>
+                            <span class="social-tooltip">Twitter</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="home__image" data-aos="fade-left" data-aos-delay="400">
+                    <div class="home__image-container">
+                        <div class="home__image-blob">
+                            <img src="ASSETS\IMG\projects\d8454ec5-173a-4e4f-bad8-1b6c11ae167a.jpg"
+                                alt="Marcos Vilela Borges - Desenvolvedor FIAP" class="home__img">
+                        </div>
+                        <div class="home__image-decoration">
+                            <span class="decoration-1"></span>
+                            <span class="decoration-2"></span>
+                            <span class="decoration-3"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator">
+                <a href="#sobre" class="scroll-link">
+                    <span class="scroll-text">Scroll</span>
+                    <span class="scroll-line"></span>
+                </a>
+            </div>
+        </section>
+
+        <!-- ===== SOBRE SECTION ===== -->
+        <section class="about section" id="sobre">
+            <div class="container">
+                <span class="section__subtitle" data-aos="fade-up">Quem sou eu</span>
+                <h2 class="section__title" data-aos="fade-up" data-aos-delay="200">
+                    Sobre <span class="text-gradient">Mim</span>
+                </h2>
+
+                <div class="about__container grid">
+                    <div class="about__content" data-aos="fade-right">
+                        <div class="about__text">
+                            <h3>Estudante de ADS na FIAP</h3>
+                            <p>
+                                Atualmente no 4º semestre de Análise e Desenvolvimento de Sistemas na FIAP,
+                                venho me dedicando a criar soluções tecnológicas que resolvem problemas reais.
+                                Minha jornada na tecnologia começou com curiosidade e se transformou em paixão
+                                por desenvolvimento de software.
+                            </p>
+                            <p>
+                                Durante minha trajetória acadêmica, participei de diversos projetos desafiadores,
+                                trabalhos em grupo que simularam ambientes reais de desenvolvimento.
+                                Essas experiências me proporcionaram não apenas conhecimento técnico, mas também
+                                habilidades
+                                de trabalho em equipe, comunicação e resolução de problemas.
+                            </p>
+                        </div>
+
+                        <div class="about__info">
+                            <div class="about__info-item">
+                                <span class="about__info-number">3+</span>
+                                <span class="about__info-text">Projetos Completos</span>
+                            </div>
+                            <div class="about__info-item">
+                                <span class="about__info-number">4+</span>
+                                <span class="about__info-text">Projetos acadêmicos</span>
+                            </div>
+                            <div class="about__info-item">
+                                <span class="about__info-number">4+</span>
+                                <span class="about__info-text">Tecnologias</span>
+                            </div>
+                        </div>
+
+                        <a href="assets/documents/curriculo.pdf" download class="button button--primary">
+                            <span>Download CV</span>
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+
+                    <div class="about__education" data-aos="fade-left">
+                        <h3>Formação Acadêmica</h3>
+
+                        <div class="timeline">
+                            <div class="timeline__item">
+                                <div class="timeline__icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div class="timeline__content">
+                                    <span class="timeline__date">2024 - 2026</span>
+                                    <span class="timeline__date">CURSANDO</span>
+                                    <h4>Análise e Desenvolvimento de Sistemas</h4>
+                                    <p>FIAP - Faculdade de Informática e Administração Paulista</p>
+                                    <ul>
+                                        <li>• Destaque em projetos de Front-end e Back-end</li>
+                                        <li>• Média geral: 8.0</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- ===== HABILIDADES SECTION ===== -->
+        <section class="skills section" id="habilidades">
+            <div class="container">
+                <span class="section__subtitle" data-aos="fade-up">Tecnologias</span>
+                <h2 class="section__title" data-aos="fade-up" data-aos-delay="200">
+                    Minhas <span class="text-gradient">Habilidades</span>
+                </h2>
+
+                <div class="skills__container">
+                    <!-- Hard Skills -->
+                    <div class="skills__group" data-aos="fade-up">
+                        <h3>Hard Skills</h3>
+                        <div class="skills__grid">
+                            <!-- HTML, CSS e JavaScript -->
+                            <div class="skill-card">
+                                <div class="skill-card__icon">
+                                    <i class="fab fa-html5"></i>
+                                </div>
+                                <div class="skill-card__info">
+                                    <h4>HTML5</h4>
+                                    <div class="skill-progress">
+                                        <div class="progress-bar" data-progress="95"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="skill-card">
+                                <div class="skill-card__icon">
+                                    <i class="fab fa-css3-alt"></i>
+                                </div>
+                                <div class="skill-card__info">
+                                    <h4>CSS3</h4>
+                                    <div class="skill-progress">
+                                        <div class="progress-bar" data-progress="90"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="skill-card">
+                                <div class="skill-card__icon">
+                                    <i class="fab fa-js"></i>
+                                </div>
+                                <div class="skill-card__info">
+                                    <h4>JavaScript</h4>
+                                    <div class="skill-progress">
+                                        <div class="progress-bar" data-progress="85"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- UX em projetos acadêmicos -->
+                            <div class="skill-card">
+                                <div class="skill-card__icon">
+                                    <i class="fas fa-paint-brush"></i>
+                                </div>
+                                <div class="skill-card__info">
+                                    <h4>UX Design</h4>
+                                    <div class="skill-progress">
+                                        <div class="progress-bar" data-progress="80"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Git/GitHub -->
+                            <div class="skill-card">
+                                <div class="skill-card__icon">
+                                    <i class="fab fa-git-alt"></i>
+                                </div>
+                                <div class="skill-card__info">
+                                    <h4>Git/GitHub</h4>
+                                    <div class="skill-progress">
+                                        <div class="progress-bar" data-progress="75"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Em aprendizado contínuo (React.js e acessibilidade) -->
+                            <div class="skill-card skill-card--learning">
+                                <div class="skill-card__icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div class="skill-card__info">
+                                    <div class="skill-card__tags">
+                                        <span class="skill-tag">
+                                            <i class="fab fa-react"></i> React
+                                        </span>
+                                        <span class="skill-tag">
+                                        </span>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="progress-bar" data-progress="60"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Soft Skills -->
+                <div class="skills__group" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Soft Skills</h3>
+                    <div class="soft-skills__grid">
+                        <div class="soft-skill">
+                            <i class="fas fa-users"></i>
+                            <span>Trabalho em Equipe</span>
+                        </div>
+                        <div class="soft-skill">
+                            <i class="fas fa-comments"></i>
+                            <span>Comunicação</span>
+                        </div>
+                        <div class="soft-skill">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Resolução de Problemas</span>
+                        </div>
+                        <div class="soft-skill">
+                            <i class="fas fa-clock"></i>
+                            <span>Gestão de Tempo</span>
+                        </div>
+                        <div class="soft-skill">
+                            <i class="fas fa-brain"></i>
+                            <span>Pensamento Crítico</span>
+                        </div>
+                        <div class="soft-skill">
+                            <i class="fas fa-handshake"></i>
+                            <span>Liderança</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- ===== PROJETOS SECTION ===== -->
+        <section class="projects section" id="projetos">
+            <div class="container">
+                <span class="section__subtitle" data-aos="fade-up">Meu Trabalho</span>
+                <h2 class="section__title" data-aos="fade-up" data-aos-delay="200">
+                    Projetos em <span class="text-gradient">Destaque</span>
+                </h2>
+
+                <div class="projects__filter" data-aos="fade-up" data-aos-delay="400">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="frontend">Front-end</button>
+                    <button class="filter-btn" data-filter="backend">Back-end</button>
+                    <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+                    <button class="filter-btn" data-filter="fiap">Projetos FIAP</button>
+                </div>
+
+                <div class="projects__grid" id="projects-grid">
+                    <!-- Projeto Único - Fintech FIAP -->
+                    <div class="project-card project-card--featured" data-category="fullstack fiap" data-aos="fade-up">
+                        <div class="project-card__image">
+                            <img src="ASSETS\IMG\projects\fiap.png" alt="Projeto Fintech FIAP">
+                            <div class="project-card__overlay">
+                                <div class="project-card__links">
+                                    <a href="#" class="project-link" target="_blank">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="https://github.com/Marcosvilel/FintechGranFinale" class="project-link"
+                                        target="_blank">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card__content">
+                            <div class="project-card__badge">
+                                <span>Projeto em Destaque</span>
+                            </div>
+
+                            <h3>Fintech FIAP - Sistema Bancário Completo</h3>
+
+                            <p class="project-card__intro">
+                                É com orgulho que compartilho meu <strong>sistema bancário completo</strong>
+                                desenvolvido durante o curso da FIAP. Um marco no meu aprendizado em Java Web!
+                            </p>
+
+                            <div class="project-card__tech-section">
+                                <h4><i class="fas fa-code"></i> Tecnologias utilizadas:</h4>
+                                <div class="project-card__tech-tags">
+                                    <span class="tech-tag">
+                                        <i class="fab fa-java"></i> Java EE
+                                    </span>
+                                    <span class="tech-tag">
+                                        <i class="fas fa-server"></i> Servlets
+                                    </span>
+                                    <span class="tech-tag">
+                                        <i class="fas fa-database"></i> JDBC
+                                    </span>
+                                    <span class="tech-tag">
+                                        <i class="fas fa-file-code"></i> JSP
+                                    </span>
+                                    <span class="tech-tag">
+                                        <i class="fab fa-html5"></i> HTML5
+                                    </span>
+                                    <span class="tech-tag">
+                                        <i class="fab fa-css3-alt"></i> CSS3
+                                    </span>
+                                    <span class="tech-tag">
+                                        <i class="fas fa-database"></i> Oracle
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="project-card__highlights">
+                                <h4><i class="fas fa-star"></i> Destaques do projeto:</h4>
+                                <ul>
+                                    <li><i class="fas fa-check-circle"></i> Autenticação segura com sessões</li>
+                                    <li><i class="fas fa-check-circle"></i> CRUD completo de transações financeiras</li>
+                                    <li><i class="fas fa-check-circle"></i> Design seguindo padrão MVC</li>
+                                    <li><i class="fas fa-check-circle"></i> Páginas de erro customizadas</li>
+                                </ul>
+                            </div>
+
+                            <div class="project-card__thanks">
+                                <h4><i class="fas fa-heart"></i> Agradecimentos especiais:</h4>
+                                <p>Esse projeto não seria o mesmo sem a ajuda incrível de:</p>
+                                <div class="thanks-grid">
+                                    <span class="thanks-item">Lucas Emanuel - pelas dicas valiosas em JDBC</span>
+                                    <span class="thanks-item">Rayane Rocha - pelo apoio no design das JSPs</span>
+                                    <span class="thanks-item">Anthony</span>
+                                    <span class="thanks-item">Pedro Henrique</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="projects__more" data-aos="fade-up">
+                    <a href="pages/projetos.html" class="button button--outline">
+                        <span>Ver Mais Projetos</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CONTATO SECTION ===== -->
+        <section class="contact section" id="contato">
+            <div class="container">
+                <span class="section__subtitle" data-aos="fade-up">Vamos Conversar</span>
+                <h2 class="section__title" data-aos="fade-up" data-aos-delay="200">
+                    Entre em <span class="text-gradient">Contato</span>
+                </h2>
+
+                <div class="contact__container grid">
+                    <div class="contact__info" data-aos="fade-right">
+                        <div class="contact__card">
+                            <i class="fas fa-envelope contact__card-icon"></i>
+                            <h3>Email</h3>
+                            <p>Lainioborges@gmail.com</p>
+                            <a href="mailto:Lainioborges@gmail.com" class="contact__card-link">
+                                Enviar mensagem <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+
+                        <div class="contact__card">
+                            <i class="fab fa-linkedin contact__card-icon"></i>
+                            <h3>LinkedIn</h3>
+                            <p>Conecte-se comigo</p>
+                            <a href="https://www.linkedin.com/in/marcos-vilela-241b40191/" target="_blank"
+                                class="contact__card-link">
+                                Acessar perfil <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+
+                        <div class="contact__card">
+                            <i class="fab fa-github contact__card-icon"></i>
+                            <h3>GitHub</h3>
+                            <p>Veja meu código</p>
+                            <a href="https://github.com/Marcosvilel" target="_blank" class="contact__card-link">
+                                Acessar repositórios <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <form class="contact__form" id="contact-form" data-aos="fade-left"
+                        action="https://formspree.io/f/xlgpewel" method="POST">
+
+                        <div class="form__group">
+                            <input type="text" id="name" name="name" required placeholder=" ">
+                            <label for="name">Seu Nome</label>
+                        </div>
+
+                        <div class="form__group">
+                            <input type="email" id="email" name="email" required placeholder=" ">
+                            <label for="email">Seu Email</label>
+                        </div>
+
+                        <div class="form__group">
+                            <input type="text" id="subject" name="subject" required placeholder=" ">
+                            <label for="subject">Assunto</label>
+                        </div>
+
+                        <div class="form__group">
+                            <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
+                            <label for="message">Sua Mensagem</label>
+                        </div>
+
+                        <button type="submit" class="button button--primary button--full" id="submit-btn">
+                            <span>Enviar Mensagem</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+
+                        <!-- Div para mensagens de feedback -->
+                        <div class="form__message" id="form-message"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer__container container">
+            <div class="footer__content">
+                <a href="index.html" class="footer__logo">
+                    <span class="footer__logo-text">&lt;[Marcos Vilela Borges]/&gt;</span>
+                </a>
+
+                <p class="footer__description">
+                    Estudante de ADS na FIAP, criando soluções inovadoras para um futuro digital.
+                </p>
+
+                <div class="footer__social">
+                    <a href="https://github.com/Marcosvilel" target="_blank" class="footer__social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/marcos-vilela-241b40191/" target="_blank"
+                        class="footer__social-link">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.instagram.com/marcos_zxm/" target="_blank" class="footer__social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p>&copy; 2024 Marcos Vilela Borges - Todos os direitos reservados</p>
+                <p>Desenvolvido com <i class="fas fa-heart" style="color: #103b4e;"></i> na FIAP</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão Scroll Up -->
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
