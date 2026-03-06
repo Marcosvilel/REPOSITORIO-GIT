@@ -82,13 +82,29 @@ function initHeaderScroll() {
         } else {
             header.classList.remove('scroll-header');
         }
-        
-        // Scroll up button
-        if (window.scrollY > 500) {
-            scrollUp.classList.add('show-scroll');
-        } else {
-            scrollUp.classList.remove('show-scroll');
-        }
+        // ===== SCROLL UP =====
+function handleScrollUp() {
+    const scrollUp = document.getElementById('scroll-up');
+    
+    // Mostra o botão quando rolar mais que 500px
+    if (window.scrollY >= 500) {
+        scrollUp.classList.add('show-scroll');
+    } else {
+        scrollUp.classList.remove('show-scroll');
+    }
+}
+
+// Adiciona evento de scroll
+window.addEventListener('scroll', handleScrollUp);
+
+// Scroll suave ao clicar no botão
+document.getElementById('scroll-up').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
     });
 }
 
