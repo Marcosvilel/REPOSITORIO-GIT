@@ -1460,3 +1460,547 @@ body {
 .zoom-in {
     animation: zoomIn 1s ease forwards;
 }
+
+/* ===== RESPONSIVIDADE AVANÇADA ===== */
+
+/* Dispositivos muito pequenos (celulares antigos, < 360px) */
+@media screen and (max-width: 360px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .section__title {
+        font-size: 1.8rem;
+    }
+
+    .section__subtitle {
+        font-size: 0.9rem;
+    }
+
+    /* Home */
+    .home__title {
+        font-size: 2.2rem;
+    }
+
+    .home__subtitle {
+        font-size: 1.2rem;
+    }
+
+    .home__description {
+        font-size: 0.9rem;
+    }
+
+    .button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .home__social-link {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1rem;
+    }
+
+    /* Skills */
+    .skills__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-card {
+        padding: 1rem;
+    }
+
+    /* Project Card */
+    .project-card__content {
+        padding: 1rem;
+    }
+
+    .project-card__content h3 {
+        font-size: 1.1rem;
+    }
+
+    .tech-tag {
+        padding: 0.2rem 0.6rem;
+        font-size: 0.7rem;
+    }
+
+    .thanks-item {
+        font-size: 0.75rem;
+    }
+
+    /* Footer */
+    .footer__logo {
+        font-size: 1.5rem;
+    }
+
+    .footer__description {
+        font-size: 0.85rem;
+    }
+
+    .footer__social-link {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1rem;
+    }
+
+    .footer__bottom {
+        flex-direction: column;
+        text-align: center;
+        font-size: 0.8rem;
+    }
+}
+
+/* Celulares padrão (360px - 480px) */
+@media screen and (min-width: 361px) and (max-width: 480px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .section__title {
+        font-size: 2rem;
+    }
+
+    /* Home */
+    .home__title {
+        font-size: 2.5rem;
+    }
+
+    .home__subtitle {
+        font-size: 1.4rem;
+    }
+
+    .home__buttons {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* About */
+    .about__info {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .about__info-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5rem 1rem;
+        background: var(--surface-color);
+        border-radius: var(--border-radius-md);
+    }
+
+    .about__info-number {
+        font-size: 1.5rem;
+        margin-bottom: 0;
+    }
+
+    /* Skills */
+    .skills__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .soft-skills__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Projects */
+    .projects__filter {
+        gap: 0.5rem;
+    }
+
+    .filter-btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    .project-card--featured {
+        margin: 0 1rem;
+    }
+
+    .project-card__image {
+        aspect-ratio: 4/3;
+    }
+
+    /* Contact */
+    .contact__card {
+        padding: 1.5rem;
+    }
+
+    .contact__card-icon {
+        font-size: 2rem;
+    }
+
+    .contact__card h3 {
+        font-size: 1.1rem;
+    }
+
+    .contact__card p {
+        font-size: 0.9rem;
+    }
+
+    /* Scroll Up */
+    .scrollup {
+        right: 1rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1rem;
+    }
+
+    .scrollup.show-scroll {
+        bottom: 1rem;
+    }
+}
+
+/* iPhone 17 Pro Max e celulares grandes (480px - 768px) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .container {
+        padding: 0 2rem;
+    }
+
+    .section__title {
+        font-size: 2.2rem;
+    }
+
+    /* Grid layouts */
+    .home__container,
+    .about__container,
+    .contact__container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    /* Home */
+    .home {
+        text-align: center;
+    }
+
+    .home__container {
+        padding-top: var(--header-height);
+    }
+
+    .home__title {
+        font-size: 3rem;
+    }
+
+    .home__description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .home__buttons {
+        justify-content: center;
+    }
+
+    .home__social {
+        justify-content: center;
+    }
+
+    .home__image-container {
+        max-width: 400px;
+        margin: 0 auto;
+        height: 400px;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+
+    /* About */
+    .about__text {
+        text-align: center;
+    }
+
+    .about__info {
+        justify-content: center;
+    }
+
+    .timeline {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    /* Skills */
+    .skills__group {
+        text-align: center;
+    }
+
+    .skills__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .skill-card {
+        padding: 1rem;
+    }
+
+    .skill-card__icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.5rem;
+    }
+
+    .skill-card__info h4 {
+        font-size: 0.9rem;
+    }
+
+    /* Projects */
+    .projects__grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .project-card {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .project-card--featured {
+        max-width: 500px;
+    }
+
+    /* Contact */
+    .contact__info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact__form {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    /* Footer */
+    .footer__content {
+        text-align: center;
+    }
+
+    .footer__bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Tablets (768px - 1024px) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        padding: 0 2rem;
+    }
+
+    .section__title {
+        font-size: 2.2rem;
+    }
+
+    /* Home */
+    .home__container {
+        gap: 2rem;
+    }
+
+    .home__title {
+        font-size: 3.2rem;
+    }
+
+    .home__subtitle {
+        font-size: 1.6rem;
+    }
+
+    .home__image-container {
+        height: 400px;
+    }
+
+    /* About */
+    .about__container {
+        gap: 2rem;
+    }
+
+    .about__info {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Skills */
+    .skills__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Projects */
+    .projects__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .project-card--featured {
+        grid-column: 1 / -1;
+        max-width: 100%;
+    }
+
+    /* Contact */
+    .contact__container {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .contact__info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Ajustes para iPhone 17 Pro Max específico (430px x 932px) */
+@media screen and (width: 430px) and (height: 932px),
+    screen and (width: 390px) and (height: 844px),
+    screen and (width: 393px) and (height: 852px) {
+    
+    .home {
+        min-height: calc(100vh - var(--header-height));
+    }
+
+    .home__container {
+        padding-top: calc(var(--header-height) + 1rem);
+    }
+
+    .home__image-container {
+        height: 350px;
+    }
+
+    .scroll-indicator {
+        bottom: 1rem;
+    }
+}
+
+/* Ajustes para telas muito altas */
+@media screen and (min-height: 900px) {
+    .home {
+        min-height: 80vh;
+    }
+
+    .home__image-container {
+        height: 450px;
+    }
+}
+
+/* Ajustes para orientação paisagem em celulares */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .home {
+        min-height: 100vh;
+    }
+
+    .home__container {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        padding-top: var(--header-height);
+    }
+
+    .home__title {
+        font-size: 2.5rem;
+    }
+
+    .home__subtitle {
+        font-size: 1.2rem;
+    }
+
+    .home__image-container {
+        height: 250px;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+}
+
+/* Ajustes para dispositivos com notch (iPhone 14, 15, 16, 17) */
+@supports (padding: max(0px)) {
+    .header {
+        padding-left: max(1rem, env(safe-area-inset-left));
+        padding-right: max(1rem, env(safe-area-inset-right));
+    }
+
+    .home {
+        padding-top: max(0px, env(safe-area-inset-top));
+        padding-bottom: max(0px, env(safe-area-inset-bottom));
+    }
+
+    .scrollup {
+        bottom: max(1rem, env(safe-area-inset-bottom));
+        right: max(1rem, env(safe-area-inset-right));
+    }
+}
+
+/* Ajustes para telas de alta densidade (Retina) */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .project-card__image img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Ajustes para modo escuro automático do sistema */
+@media (prefers-color-scheme: dark) {
+    body:not(.light-theme) {
+        --bg-color: #1a1b2f;
+        --surface-color: #2d2f45;
+        --text-color: #f8f9fa;
+        --text-light: #b8c1e0;
+        --border-color: #3d3f5e;
+        --shadow-color: rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* Ajustes para modo claro automático do sistema */
+@media (prefers-color-scheme: light) {
+    body:not(.dark-theme) {
+        --bg-color: #ffffff;
+        --surface-color: #f8f9fa;
+        --text-color: #2b2d42;
+        --text-light: #6c757d;
+        --border-color: #e9ecef;
+        --shadow-color: rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* Animações responsivas */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Ajustes de performance para dispositivos móveis */
+@media (max-width: 768px) {
+    .parallax {
+        transform: none !important;
+    }
+
+    .custom-cursor,
+    .custom-cursor-follower {
+        display: none;
+    }
+
+    .home__image-decoration {
+        display: none;
+    }
+}
+
+/* Ajustes para impressão */
+@media print {
+    .header,
+    .footer,
+    .scrollup,
+    .projects__filter,
+    .contact__form,
+    .home__social {
+        display: none;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    .section {
+        page-break-inside: avoid;
+    }
+}
