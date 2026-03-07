@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCustomCursor();
     initHeaderScroll();
     initMobileMenu();
-    initTheme();
+    initTheme(); // Adicionado - tema dark/light
     initTyped();
     initAOS();
     initSkillBars();
@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initParallax();
     initSmoothScroll();
     initContactForm();
+    initCounters();
 });
 
 // ===== PRELOADER =====
@@ -82,31 +83,24 @@ function initHeaderScroll() {
         } else {
             header.classList.remove('scroll-header');
         }
-        // ===== SCROLL UP =====
-function handleScrollUp() {
-    const scrollUp = document.getElementById('scroll-up');
-    
-    // Mostra o botão quando rolar mais que 500px
-    if (window.scrollY >= 500) {
-        scrollUp.classList.add('show-scroll');
-    } else {
-        scrollUp.classList.remove('show-scroll');
-    }
+        
+        // Scroll Up button
+        if (window.scrollY >= 500) {
+            scrollUp.classList.add('show-scroll');
+        } else {
+            scrollUp.classList.remove('show-scroll');
+        }
+    });
 }
 
-// Adiciona evento de scroll
-window.addEventListener('scroll', handleScrollUp);
-
-// Scroll suave ao clicar no botão
-document.getElementById('scroll-up').addEventListener('click', function(e) {
+// ===== SCROLL UP =====
+document.getElementById('scroll-up')?.addEventListener('click', function(e) {
     e.preventDefault();
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
     });
 });
-    });
-}
 
 // ===== MENU MOBILE =====
 function initMobileMenu() {
@@ -134,29 +128,79 @@ function initMobileMenu() {
     });
 }
 
-// ===== THEME TOGGLE =====
+// ===== THEME TOGGLE (DARK/LIGHT) =====
 function initTheme() {
     const themeButton = document.getElementById('theme-button');
-    const darkTheme = 'dark-theme';
+    const themeIcon = themeButton.querySelector('.theme-icon');
+    const darkThemeClass = 'dark-theme';
     const iconTheme = 'fa-sun';
     
-    const selectedTheme = localStorage.getItem('selected-theme');
-    const selectedIcon = localStorage.getItem('selected-icon');
+    // Tema preferido do usuário (salvo ou preferência do sistema)
+    const getPreferredTheme = () => {
+        const savedTheme = localStorage.getItem('selected-theme');
+        if (savedTheme) {
+            return savedTheme;
+        }
+        // Verifica preferência do sistema
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
     
-    const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light';
-    const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'fa-moon' : 'fa-sun';
+    // Define o tema inicial
+    const setInitialTheme = () => {
+        const theme = getPreferredTheme();
+        if (theme === 'dark') {
+            document.body.classList.add(darkThemeClass);
+            themeIcon.classList.replace('fa-moon', iconTheme);
+        } else {
+            document.body.classList.remove(darkThemeClass);
+            themeIcon.classList.replace(iconTheme, 'fa-moon');
+        }
+    };
     
-    if (selectedTheme) {
-        document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme);
-        themeButton.classList[selectedIcon === 'fa-moon' ? 'add' : 'remove'](iconTheme);
-    }
+    setInitialTheme();
     
+    // Alterna tema ao clicar no botão
     themeButton.addEventListener('click', () => {
-        document.body.classList.toggle(darkTheme);
-        themeButton.classList.toggle(iconTheme);
+        // Alterna classe do tema
+        document.body.classList.toggle(darkThemeClass);
         
-        localStorage.setItem('selected-theme', getCurrentTheme());
-        localStorage.setItem('selected-icon', getCurrentIcon());
+        // Alterna ícone
+        if (document.body.classList.contains(darkThemeClass)) {
+            themeIcon.classList.replace('fa-moon', iconTheme);
+            localStorage.setItem('selected-theme', 'dark');
+            localStorage.setItem('selected-icon', iconTheme);
+            
+            // Atualiza meta theme-color para dark
+            document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#1a1b2f');
+        } else {
+            themeIcon.classList.replace(iconTheme, 'fa-moon');
+            localStorage.setItem('selected-theme', 'light');
+            localStorage.setItem('selected-icon', 'fa-moon');
+            
+            // Atualiza meta theme-color para light
+            document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#4361ee');
+        }
+        
+        // Animação no botão
+        themeButton.style.transform = 'rotate(180deg)';
+        setTimeout(() => {
+            themeButton.style.transform = 'rotate(0)';
+        }, 300);
+    });
+    
+    // Observa mudanças na preferência do sistema
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!localStorage.getItem('selected-theme')) {
+            if (e.matches) {
+                document.body.classList.add(darkThemeClass);
+                themeIcon.classList.replace('fa-moon', iconTheme);
+                document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#1a1b2f');
+            } else {
+                document.body.classList.remove(darkThemeClass);
+                themeIcon.classList.replace(iconTheme, 'fa-moon');
+                document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#4361ee');
+            }
+        }
     });
 }
 
@@ -406,8 +450,8 @@ function initSmoothScroll() {
     });
 }
 
-// Formulário de contato
-document.addEventListener('DOMContentLoaded', function() {
+// ===== CONTACT FORM =====
+function initContactForm() {
     const form = document.getElementById('contact-form');
     
     if (form) {
@@ -456,6 +500,7 @@ document.addEventListener('DOMContentLoaded', function() {
         function showMessage(type, text) {
             formMessage.className = `form__message ${type}`;
             formMessage.textContent = text;
+            formMessage.style.display = 'block';
             
             // Remove a mensagem após 5 segundos
             setTimeout(() => {
@@ -463,23 +508,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 5000);
         }
     }
-});
-
-// ===== LAZY LOADING IMAGES =====
-const imageObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const img = entry.target;
-            img.src = img.dataset.src;
-            img.classList.add('loaded');
-            observer.unobserve(img);
-        }
-    });
-});
-
-document.querySelectorAll('img[data-src]').forEach(img => {
-    imageObserver.observe(img);
-});
+}
 
 // ===== COUNT NUMBERS =====
 function initCounters() {
@@ -512,3 +541,40 @@ function initCounters() {
         counterObserver.observe(counter);
     });
 }
+
+// ===== LAZY LOADING IMAGES =====
+const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src;
+            img.classList.add('loaded');
+            observer.unobserve(img);
+        }
+    });
+});
+
+document.querySelectorAll('img[data-src]').forEach(img => {
+    imageObserver.observe(img);
+});
+
+// ===== DETECTA MUDANÇA DE TEMA PARA ATUALIZAR GRÁFICOS =====
+// Útil se você tiver canvas ou elementos que precisam ser redesenhados
+const themeObserver = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class' && mutation.target === document.body) {
+            // Dispara evento customizado para outros componentes
+            const event = new CustomEvent('themeChange', {
+                detail: {
+                    theme: document.body.classList.contains('dark-theme') ? 'dark' : 'light'
+                }
+            });
+            window.dispatchEvent(event);
+        }
+    });
+});
+
+themeObserver.observe(document.body, {
+    attributes: true,
+    attributeFilter: ['class']
+});

@@ -42,19 +42,61 @@
     --border-radius-full: 9999px;
 }
 
-/* Tema Dark */
+/* ===== TEMA DARK ===== */
 body.dark-theme {
     --primary-color: #6c8cff;
     --primary-dark: #5a7cf0;
     --primary-light: #8aa4ff;
+    --secondary-color: #b5179e;
+    --accent-color: #f72585;
     
-    --bg-color: #1a1b2f;
-    --surface-color: #2d2f45;
+    --bg-color: #0a0a0f;
+    --surface-color: #1a1b2f;
     --text-color: #f8f9fa;
     --text-light: #b8c1e0;
     
-    --border-color: #3d3f5e;
-    --shadow-color: rgba(0, 0, 0, 0.3);
+    --border-color: #2d2f45;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    
+    /* Gradientes mantêm as cores mas com mais brilho no escuro */
+    --gradient-primary: linear-gradient(135deg, #6c8cff 0%, #b5179e 100%);
+}
+
+/* Ajustes específicos para o tema dark */
+body.dark-theme .home::before {
+    background: radial-gradient(circle at 10% 20%, rgba(108, 140, 255, 0.15) 0%, transparent 50%);
+}
+
+body.dark-theme .button--outline {
+    color: var(--text-color);
+    border-color: var(--primary-color);
+}
+
+body.dark-theme .button--outline:hover {
+    background: var(--primary-color);
+    color: var(--bg-color);
+}
+
+body.dark-theme .project-link {
+    background-color: var(--surface-color);
+    color: var(--primary-color);
+}
+
+body.dark-theme .tech-tag {
+    background: rgba(108, 140, 255, 0.15);
+    border-color: rgba(108, 140, 255, 0.3);
+}
+
+body.dark-theme .thanks-item {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-theme .footer__social-link {
+    background-color: var(--surface-color);
+}
+
+body.dark-theme .footer__bottom i {
+    color: #ff6b6b;
 }
 
 /* ===== RESET E ESTILOS BASE ===== */
@@ -232,6 +274,28 @@ body {
     animation: blink 1.5s infinite;
 }
 
+/* Botão de tema */
+.nav__theme {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    transition: color var(--transition-fast);
+    margin-left: 1rem;
+}
+
+.nav__theme:hover {
+    color: var(--primary-color);
+    transform: rotate(15deg);
+}
+
+.theme-icon {
+    transition: transform var(--transition-normal);
+}
+
+body.dark-theme .theme-icon {
+    transform: rotate(360deg);
+}
+
 @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
@@ -271,17 +335,6 @@ body {
 .nav__link:hover::after,
 .nav__link.active-link::after {
     width: 100%;
-}
-
-.nav__theme {
-    cursor: pointer;
-    font-size: 1.2rem;
-    color: var(--text-color);
-    transition: color var(--transition-fast);
-}
-
-.nav__theme:hover {
-    color: var(--primary-color);
 }
 
 .nav__toggle,
@@ -950,7 +1003,7 @@ body {
     font-size: 1rem;
     line-height: 1.6;
     margin: 1rem 0;
-    color: var(--text-secondary);
+    color: var(--text-light);
 }
 
 .project-card__intro strong {
@@ -1241,9 +1294,9 @@ body {
 }
 
 .form__group input:focus ~ label,
-.form__group input:valid ~ label,
+.form__group input:not(:placeholder-shown) ~ label,
 .form__group textarea:focus ~ label,
-.form__group textarea:valid ~ label {
+.form__group textarea:not(:placeholder-shown) ~ label {
     top: -0.5rem;
     font-size: 0.8rem;
     color: var(--primary-color);
@@ -1474,8 +1527,6 @@ body {
     }
 
    /* ===== CORREÇÃO DO MENU MOBILE ===== */
-@media screen and (max-width: 768px) {
-    
     /* HEADER - Menu fixo no topo */
     .header {
         position: fixed !important;
@@ -1542,6 +1593,7 @@ body {
 
     /* Botão fechar */
     .nav__close {
+        display: block !important;
         position: absolute !important;
         top: 1rem !important;
         right: 1.5rem !important;
@@ -1559,6 +1611,12 @@ body {
         color: var(--text-color) !important;
     }
 
+    /* Botão de tema no mobile */
+    .nav__theme {
+        margin-top: 2rem !important;
+        font-size: 1.5rem !important;
+    }
+
     /* Overlay escuro quando menu está aberto */
     .nav__menu.show-menu::after {
         content: '';
@@ -1572,14 +1630,7 @@ body {
         pointer-events: none;
     }
 
-    /* Esconder tema do menu mobile (se tiver) */
-    .nav__theme {
-        margin-top: 2rem !important;
-    }
-}
-
-/* ===== CORREÇÃO PARA O CONTEÚDO NÃO FICAR ATRÁS DO HEADER ===== */
-@media screen and (max-width: 768px) {
+    /* ===== CORREÇÃO PARA O CONTEÚDO NÃO FICAR ATRÁS DO HEADER ===== */
     .home {
         padding-top: calc(var(--header-height) + 1rem) !important;
     }
@@ -1587,7 +1638,6 @@ body {
     section:not(.home) {
         scroll-margin-top: var(--header-height) !important;
     }
-}
 
     /* HOME - Seção principal */
     .home {
@@ -1599,11 +1649,6 @@ body {
         display: flex !important;
         flex-direction: column !important;
         gap: 2rem !important;
-    }
-
-    .home__data {
-        width: 100% !important;
-        order: 1 !important;
     }
 
     .home__title {
@@ -1713,26 +1758,77 @@ body {
 
     /* CONTATO */
     .contact__container {
+        display: flex !important;
         flex-direction: column !important;
         gap: 2rem !important;
+        width: 100% !important;
     }
 
     .contact__info {
-        grid-template-columns: 1fr !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+        width: 100% !important;
+        order: 2 !important;
+    }
+
+    .contact__card {
+        width: 100% !important;
+        padding: 1.5rem !important;
+        margin: 0 !important;
+    }
+
+    .contact__card h3 {
+        font-size: 1.2rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .contact__card p {
+        font-size: 0.9rem !important;
+        margin-bottom: 0.8rem !important;
+        word-break: break-word !important;
+    }
+
+    .contact__card-icon {
+        font-size: 2rem !important;
+        margin-bottom: 0.8rem !important;
     }
 
     .contact__form {
         width: 100% !important;
         padding: 1.5rem !important;
+        order: 1 !important;
+        margin-bottom: 1rem !important;
     }
 
     .form__group {
         width: 100% !important;
+        margin-bottom: 1.8rem !important;
     }
 
     .form__group input,
     .form__group textarea {
         width: 100% !important;
+        padding: 0.8rem 0 !important;
+        font-size: 1rem !important;
+    }
+
+    .form__group label {
+        font-size: 0.95rem !important;
+        top: 0.8rem !important;
+    }
+
+    .form__group input:focus ~ label,
+    .form__group input:not(:placeholder-shown) ~ label,
+    .form__group textarea:focus ~ label,
+    .form__group textarea:not(:placeholder-shown) ~ label {
+        top: -0.8rem !important;
+        font-size: 0.75rem !important;
+    }
+
+    .contact__form button[type="submit"] {
+        width: 100% !important;
+        margin-top: 0.5rem !important;
     }
 
     /* FOOTER */
@@ -1788,6 +1884,31 @@ body {
 
     .section__title {
         font-size: 1.8rem !important;
+    }
+    
+    .contact__card {
+        padding: 1.2rem !important;
+    }
+
+    .contact__card h3 {
+        font-size: 1.1rem !important;
+    }
+
+    .contact__card p {
+        font-size: 0.85rem !important;
+    }
+
+    .contact__card-icon {
+        font-size: 1.8rem !important;
+    }
+
+    .contact__form {
+        padding: 1.2rem !important;
+    }
+
+    .form__group input,
+    .form__group textarea {
+        font-size: 0.95rem !important;
     }
 }
 
@@ -2080,14 +2201,6 @@ body {
     }
 }
 
-/* Ajuste para telas AMOLED */
-@media (prefers-color-scheme: dark) {
-    body.dark-theme {
-        --bg-color: #000000;
-        --surface-color: #121212;
-    }
-}
-
 /* ===== ORIENTAÇÃO PAISAGEM ===== */
 @media screen and (max-height: 500px) and (orientation: landscape) {
     .home {
@@ -2227,30 +2340,6 @@ body {
     .home__img,
     .project-card__image img {
         image-rendering: crisp-edges;
-    }
-}
-
-/* Ajuste para modo escuro do sistema */
-@media (prefers-color-scheme: dark) {
-    body:not(.light-theme) {
-        --bg-color: #1a1b2f;
-        --surface-color: #2d2f45;
-        --text-color: #f8f9fa;
-        --text-light: #b8c1e0;
-        --border-color: #3d3f5e;
-        --shadow-color: rgba(0, 0, 0, 0.5);
-    }
-}
-
-/* Ajuste para modo claro do sistema */
-@media (prefers-color-scheme: light) {
-    body:not(.dark-theme) {
-        --bg-color: #ffffff;
-        --surface-color: #f8f9fa;
-        --text-color: #2b2d42;
-        --text-light: #6c757d;
-        --border-color: #e9ecef;
-        --shadow-color: rgba(0, 0, 0, 0.1);
     }
 }
 
