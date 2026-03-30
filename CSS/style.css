@@ -1549,7 +1549,7 @@ body.dark-theme .theme-icon {
         top: -100vh !important; /* Começa fora da tela */
         left: 0 !important;
         width: 100% !important;
-        height: 100vh !important; /* Ocupa a tela toda */
+        height: 100dvh !important; /* Ocupa a tela toda */
         background: var(--bg-color) !important;
         display: flex !important;
         flex-direction: column !important;
@@ -2157,6 +2157,7 @@ body.dark-theme .theme-icon {
     .header {
         padding-left: max(1rem, env(safe-area-inset-left));
         padding-right: max(1rem, env(safe-area-inset-right));
+        padding-top: env(safe-area-inset-top);
     }
 
     .home {
@@ -2169,8 +2170,9 @@ body.dark-theme .theme-icon {
     }
 
     .nav__menu.show-menu {
-        padding-top: max(4rem, env(safe-area-inset-top));
-    }
+    padding-top: max(4rem, env(safe-area-inset-top)) !important;
+    padding-bottom: env(safe-area-inset-bottom) !important;
+}
 }
 
 /* Ajuste para rolagem suave no iOS */

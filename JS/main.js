@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initCounters();
 });
 
+
+
+
 // ===== PRELOADER =====
 function initPreloader() {
     const preloader = document.querySelector('.preloader');
@@ -577,4 +580,54 @@ const themeObserver = new MutationObserver((mutations) => {
 themeObserver.observe(document.body, {
     attributes: true,
     attributeFilter: ['class']
+});
+
+// <!-- COOPY AUTOMATICO - NÃO EDITAR ESTE CÓDIGO MANUALMENTE --->
+document.addEventListener('DOMContentLoaded', function() {
+    const yearSpan = document.getElementById('currentYear');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+});
+
+// main.js
+
+function loadHeader() {
+    fetch('components/header.html')
+        .then(response => {
+            if (!response.ok) throw new Error('Header não encontrado');
+            return response.text();
+        })
+        .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+            console.log('✅ Header carregado com sucesso!');
+        })
+        .catch(error => console.error('❌ Erro ao carregar header:', error));
+}
+
+function loadFooter() {
+    fetch('components/footer.html')
+        .then(response => {
+            if (!response.ok) throw new Error('Footer não encontrado');
+            return response.text();
+        })
+        .then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+            updateCurrentYear();
+            console.log('✅ Footer carregado com sucesso!');
+        })
+        .catch(error => console.error('❌ Erro ao carregar footer:', error));
+}
+
+function updateCurrentYear() {
+    const yearSpan = document.getElementById('currentYear');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+}
+
+// Carregar tudo quando a página estiver pronta
+document.addEventListener('DOMContentLoaded', function() {
+    loadHeader();
+    loadFooter();
 });
