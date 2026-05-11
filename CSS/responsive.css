@@ -1,0 +1,630 @@
+/* =========================================================
+   RESPONSIVE.CSS - Mobile-first responsivo iOS / Android
+   Carregado APOS style.css (sobrescreve quando necessario).
+   Breakpoints:
+     - xs : < 360px  (iPhone SE 1, Galaxy Fold fechado)
+     - sm : 360-480  (mobile padrao)
+     - md : 481-768  (mobile grande / phablet)
+     - lg : 769-1024 (tablet)
+     - xl : > 1024   (desktop)
+   ========================================================= */
+
+/* ---------- 0. BASE iOS / ANDROID ---------- */
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overscroll-behavior-y: none;
+}
+
+a, button, input, select, textarea, [role="button"] {
+    -webkit-tap-highlight-color: rgba(67, 97, 238, 0.15);
+    touch-action: manipulation;
+}
+
+img, picture, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+input, select, textarea {
+    font-size: 16px;
+}
+
+/* Notch / Dynamic Island (iPhone X+) e barra de status Android */
+.header,
+.nav.container {
+    padding-top: env(safe-area-inset-top);
+    padding-left: max(2rem, env(safe-area-inset-left));
+    padding-right: max(2rem, env(safe-area-inset-right));
+}
+
+.footer__container {
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Fix 100vh iOS (barra de URL do Safari) */
+@supports (-webkit-touch-callout: none) {
+    .home {
+        min-height: -webkit-fill-available;
+    }
+}
+
+/* Esconde cursor custom no touch (nao faz sentido em mobile) */
+@media (hover: none) and (pointer: coarse) {
+    .custom-cursor,
+    .custom-cursor-follower {
+        display: none !important;
+    }
+
+    .social-tooltip {
+        display: none;
+    }
+}
+
+/* =========================================================
+   TABLET (lg) - 769px a 1024px
+   ========================================================= */
+@media screen and (max-width: 1024px) {
+    :root {
+        --section-padding: 4.5rem 0;
+        --header-height: 4rem;
+    }
+
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .section__title {
+        font-size: 2.2rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .home__container {
+        gap: 2.5rem;
+    }
+
+    .home__title {
+        font-size: 3rem;
+    }
+
+    .home__subtitle {
+        font-size: 1.6rem;
+    }
+
+    .home__image-container {
+        height: 400px;
+    }
+
+    .about__container,
+    .contact__container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .skills__grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .projects__grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+/* =========================================================
+   MOBILE GRANDE (md) - 481px a 768px
+   ========================================================= */
+@media screen and (max-width: 768px) {
+    :root {
+        --section-padding: 3.5rem 0;
+        --header-height: 3.75rem;
+    }
+
+    .container {
+        padding: 0 1.25rem;
+    }
+
+    /* --- NAV MOBILE: drawer lateral --- */
+    .nav__menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 320px;
+        height: 100vh;
+        height: 100dvh;
+        background-color: var(--bg-color);
+        box-shadow: -10px 0 30px var(--shadow-color);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 5rem 2rem 2rem;
+        padding-top: calc(5rem + env(safe-area-inset-top));
+        padding-right: max(2rem, env(safe-area-inset-right));
+        gap: 1.5rem;
+        z-index: 1000;
+        transition: right var(--transition-normal);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .nav__menu.show-menu {
+        right: 0;
+    }
+
+    .nav__list {
+        flex-direction: column;
+        width: 100%;
+        gap: 1.25rem;
+    }
+
+    .nav__item {
+        width: 100%;
+    }
+
+    .nav__link {
+        display: block;
+        font-size: 1.1rem;
+        padding: 0.75rem 0;
+        min-height: 44px;
+    }
+
+    .nav__toggle,
+    .nav__close {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    .nav__close {
+        position: absolute;
+        top: 1.25rem;
+        right: 1.25rem;
+    }
+
+    .nav__theme {
+        margin-top: 1rem;
+    }
+
+    /* --- Backdrop quando o menu abre --- */
+    body.nav-open::after {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        backdrop-filter: blur(2px);
+    }
+
+    body.nav-open {
+        overflow: hidden;
+    }
+
+    /* --- HOME --- */
+    .home {
+        padding-top: calc(var(--header-height) + 2rem);
+        padding-bottom: 2rem;
+        text-align: center;
+    }
+
+    .home__container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .home__content {
+        order: 2;
+    }
+
+    .home__image {
+        order: 1;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    .home__image-container {
+        height: 280px;
+    }
+
+    .home__title {
+        font-size: 2.25rem;
+        line-height: 1.15;
+    }
+
+    .home__subtitle {
+        font-size: 1.25rem;
+        min-height: 2.5rem;
+    }
+
+    .home__description {
+        font-size: 1rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .home__buttons {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto 2rem;
+    }
+
+    .home__social {
+        justify-content: center;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+
+    /* --- BOTOES com touch target adequado --- */
+    .button {
+        min-height: 48px;
+        padding: 0.875rem 1.5rem;
+        justify-content: center;
+        font-size: 1rem;
+    }
+
+    /* --- SECTION TITLES --- */
+    .section__title {
+        font-size: 1.85rem;
+        margin-bottom: 2rem;
+    }
+
+    .section__subtitle {
+        font-size: 0.95rem;
+        letter-spacing: 1.5px;
+    }
+
+    /* --- ABOUT --- */
+    .about__container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .about__info {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.75rem;
+        margin: 1.5rem 0;
+    }
+
+    .about__info-item {
+        padding: 1rem 0.5rem;
+        text-align: center;
+    }
+
+    .about__info-number {
+        font-size: 1.5rem;
+    }
+
+    .about__info-text {
+        font-size: 0.8rem;
+    }
+
+    /* --- SKILLS --- */
+    .skills__grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 1rem;
+    }
+
+    .skill-card {
+        padding: 1rem;
+    }
+
+    .soft-skills__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    /* --- PROJECTS --- */
+    .projects__filter {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 0.5rem;
+    }
+
+    .projects__filter::-webkit-scrollbar {
+        display: none;
+    }
+
+    .filter-btn {
+        min-height: 40px;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        white-space: nowrap;
+    }
+
+    .projects__grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .project-card {
+        margin: 0 auto;
+        max-width: 100%;
+    }
+
+    .project-card__image img {
+        height: 200px;
+        object-fit: cover;
+    }
+
+    /* Overlay visivel por padrao no touch (sem :hover) */
+    .project-card__overlay {
+        opacity: 1;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 50%);
+    }
+
+    .project-link {
+        width: 44px;
+        height: 44px;
+    }
+
+    .project-card__content {
+        padding: 1.25rem;
+    }
+
+    .project-card__tech-tags {
+        gap: 0.5rem;
+    }
+
+    .tech-tag {
+        font-size: 0.8rem;
+        padding: 0.25rem 0.6rem;
+    }
+
+    .thanks-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* --- CONTATO --- */
+    .contact__container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .contact__info {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .contact__card {
+        padding: 1.25rem;
+    }
+
+    .form__group input,
+    .form__group textarea {
+        padding: 0.875rem 1rem;
+        font-size: 16px;
+    }
+
+    /* --- FOOTER --- */
+    .footer__content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .footer__social {
+        justify-content: center;
+    }
+
+    .footer__social-link {
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    /* --- SCROLL UP no canto seguro --- */
+    .scrollup {
+        right: 1rem;
+        bottom: calc(1rem + env(safe-area-inset-bottom));
+        width: 48px;
+        height: 48px;
+    }
+}
+
+/* =========================================================
+   MOBILE PADRAO (sm) - 360px a 480px
+   ========================================================= */
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .section__title {
+        font-size: 1.65rem;
+    }
+
+    .home__title {
+        font-size: 1.9rem;
+    }
+
+    .home__subtitle {
+        font-size: 1.1rem;
+    }
+
+    .home__badge span {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.85rem;
+    }
+
+    .home__image-container {
+        height: 240px;
+    }
+
+    .about__info {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .about__info-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.75rem 1rem;
+    }
+
+    .skills__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .soft-skills__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card__content {
+        padding: 1rem;
+    }
+
+    .project-card__content h3 {
+        font-size: 1.15rem;
+    }
+
+    .project-card__highlights ul li {
+        font-size: 0.9rem;
+    }
+
+    .timeline__content {
+        padding: 1rem;
+    }
+
+    .contact__card h3 {
+        font-size: 1.1rem;
+    }
+}
+
+/* =========================================================
+   XS - < 360px (iPhone SE 1 geracao, Galaxy Fold)
+   ========================================================= */
+@media screen and (max-width: 359px) {
+    :root {
+        --section-padding: 2.5rem 0;
+    }
+
+    .container {
+        padding: 0 0.75rem;
+    }
+
+    .nav__logo-text {
+        font-size: 0.95rem;
+    }
+
+    .home__title {
+        font-size: 1.65rem;
+    }
+
+    .home__subtitle {
+        font-size: 1rem;
+    }
+
+    .home__description {
+        font-size: 0.9rem;
+    }
+
+    .home__image-container {
+        height: 200px;
+    }
+
+    .section__title {
+        font-size: 1.45rem;
+    }
+
+    .button {
+        font-size: 0.9rem;
+        padding: 0.75rem 1rem;
+    }
+
+    .tech-tag {
+        font-size: 0.72rem;
+    }
+}
+
+/* =========================================================
+   LANDSCAPE em telefones (altura curta)
+   ========================================================= */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .home {
+        min-height: auto;
+        padding-top: calc(var(--header-height) + 2rem);
+        padding-bottom: 2rem;
+    }
+
+    .home__container {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+
+    .home__image-container {
+        height: 220px;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+}
+
+/* =========================================================
+   Telas de alta densidade (Retina, AMOLED, etc.)
+   ========================================================= */
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi) {
+    .home__img,
+    .project-card__image img {
+        image-rendering: -webkit-optimize-contrast;
+    }
+}
+
+/* =========================================================
+   PWA / standalone (quando instalado no iOS / Android)
+   ========================================================= */
+@media all and (display-mode: standalone) {
+    .header {
+        padding-top: max(env(safe-area-inset-top), 1rem);
+    }
+
+    .home {
+        padding-top: calc(var(--header-height) + env(safe-area-inset-top));
+    }
+}
+
+/* =========================================================
+   Acessibilidade - prefers-reduced-motion
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .home__image-blob {
+        animation: none;
+    }
+
+    .decoration-1,
+    .decoration-2,
+    .decoration-3 {
+        animation: none;
+    }
+}

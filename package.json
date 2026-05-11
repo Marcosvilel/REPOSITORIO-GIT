@@ -5,7 +5,7 @@
 "main": "index.html",
 "scripts": {
     "start": "live-server --port=3000",
-    "build": "mkdir -p dist && cp -r index.html css js assets pages dist/",
+    "build": "mkdir -p dist && cp -r index.html CSS JS ASSETS PAGES components dist/",
     "deploy": "npm run build && gh-pages -d dist"
 },
 "keywords": [
@@ -15,7 +15,7 @@
     "desenvolvimento",
     "web"
 ],
-"author": "Seu Nome",
+"author": "Marcos Vilela Borges",
 "license": "MIT",
 "devDependencies": {
     "live-server": "^1.2.2",
