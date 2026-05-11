@@ -111,23 +111,43 @@ function initMobileMenu() {
     const navToggle = document.getElementById('nav-toggle');
     const navClose = document.getElementById('nav-close');
     const navLinks = document.querySelectorAll('.nav__link');
-    
+
+    const openMenu = () => {
+        navMenu.classList.add('show-menu');
+        document.body.classList.add('nav-open');
+    };
+
+    const closeMenu = () => {
+        navMenu.classList.remove('show-menu');
+        document.body.classList.remove('nav-open');
+    };
+
     if (navToggle) {
-        navToggle.addEventListener('click', () => {
-            navMenu.classList.add('show-menu');
-        });
+        navToggle.addEventListener('click', openMenu);
     }
-    
+
     if (navClose) {
-        navClose.addEventListener('click', () => {
-            navMenu.classList.remove('show-menu');
-        });
+        navClose.addEventListener('click', closeMenu);
     }
-    
+
     navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('show-menu');
-        });
+        link.addEventListener('click', closeMenu);
+    });
+
+    // Fecha ao tocar no backdrop (fora do menu)
+    document.addEventListener('click', (e) => {
+        if (
+            navMenu.classList.contains('show-menu') &&
+            !navMenu.contains(e.target) &&
+            !navToggle.contains(e.target)
+        ) {
+            closeMenu();
+        }
+    });
+
+    // Fecha com tecla ESC (acessibilidade)
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMenu();
     });
 }
 
