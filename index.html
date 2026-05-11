@@ -364,223 +364,135 @@
                     Projetos em <span class="text-gradient">Destaque</span>
                 </h2>
 
-                <div class="projects__filter" data-aos="fade-up" data-aos-delay="400">
-                    <button class="filter-btn active" data-filter="all">Todos</button>
-                    <button class="filter-btn" data-filter="frontend">Front-end</button>
-                    <button class="filter-btn" data-filter="backend">Back-end</button>
-                    <button class="filter-btn" data-filter="fullstack">Full Stack</button>
-                    <button class="filter-btn" data-filter="fiap">Projetos FIAP</button>
-                </div>
+                <!-- Carrossel de Projetos -->
+                <div class="carousel" id="projects-carousel" data-aos="fade-up" data-aos-delay="200">
+                    <button class="carousel__btn carousel__btn--prev" aria-label="Projeto anterior">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
 
-                <div class="projects__grid" id="projects-grid">
-                    <!-- Projeto Único - Fintech FIAP -->
-                    <div class="project-card project-card--featured" data-category="fullstack fiap" data-aos="fade-up">
-                        <div class="project-card__image">
-                            <img src="ASSETS/IMG/projects/fiap.png" alt="Projeto Fintech FIAP">
-                            <div class="project-card__overlay">
-                                <div class="project-card__links">
-                                    <a href="#" class="project-link" target="_blank">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                    <a href="https://github.com/Marcosvilel/FintechGranFinale" class="project-link"
-                                        target="_blank">
-                                        <i class="fab fa-github"></i>
-                                    </a>
+                    <div class="carousel__viewport">
+                        <div class="carousel__track" id="carousel-track">
+
+                            <!-- 1. Fintech FIAP -->
+                            <article class="carousel__slide project-card" data-category="fullstack fiap">
+                                <div class="project-card__image">
+                                    <img src="ASSETS/IMG/projects/fintech-fiap.svg"
+                                         alt="Sistema bancario Fintech FIAP" loading="lazy">
+                                    <div class="project-card__overlay">
+                                        <div class="project-card__links">
+                                            <a href="https://github.com/Marcosvilel/FintechGranFinale"
+                                               class="project-link" target="_blank" rel="noopener"
+                                               aria-label="Ver codigo no GitHub">
+                                                <i class="fab fa-github"></i>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="project-card__content">
-                            <div class="project-card__badge">
-                                <span>Projeto em Destaque</span>
-                            </div>
-
-                            <h3>Fintech FIAP - Sistema Bancário Completo</h3>
-
-                            <p class="project-card__intro">
-                                É com orgulho que compartilho meu <strong>sistema bancário completo</strong>
-                                desenvolvido durante o curso da FIAP. Um marco no meu aprendizado em Java Web!
-                            </p>
-
-                            <div class="project-card__tech-section">
-                                <h4><i class="fas fa-code"></i> Tecnologias utilizadas:</h4>
-                                <div class="project-card__tech-tags">
-                                    <span class="tech-tag">
-                                        <i class="fab fa-java"></i> Java EE
-                                    </span>
-                                    <span class="tech-tag">
-                                        <i class="fas fa-server"></i> Servlets
-                                    </span>
-                                    <span class="tech-tag">
-                                        <i class="fas fa-database"></i> JDBC
-                                    </span>
-                                    <span class="tech-tag">
-                                        <i class="fas fa-file-code"></i> JSP
-                                    </span>
-                                    <span class="tech-tag">
-                                        <i class="fab fa-html5"></i> HTML5
-                                    </span>
-                                    <span class="tech-tag">
-                                        <i class="fab fa-css3-alt"></i> CSS3
-                                    </span>
-                                    <span class="tech-tag">
-                                        <i class="fas fa-database"></i> Oracle
-                                    </span>
+                                <div class="project-card__content">
+                                    <div class="project-card__badge">
+                                        <span>Projeto em Destaque</span>
+                                    </div>
+                                    <h3>Fintech FIAP - Sistema Bancario Completo</h3>
+                                    <p>
+                                        Sistema bancario <strong>full-stack</strong> em Java EE desenvolvido
+                                        na FIAP: autenticacao com sessoes, CRUD de transacoes, padrao
+                                        <strong>MVC</strong> e paginas de erro customizadas.
+                                    </p>
+                                    <div class="project-card__tech-section">
+                                        <div class="project-card__tech-tags">
+                                            <span class="tech-tag"><i class="fab fa-java"></i> Java EE</span>
+                                            <span class="tech-tag"><i class="fas fa-server"></i> Servlets</span>
+                                            <span class="tech-tag"><i class="fas fa-database"></i> JDBC</span>
+                                            <span class="tech-tag"><i class="fas fa-file-code"></i> JSP</span>
+                                            <span class="tech-tag"><i class="fas fa-database"></i> Oracle</span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            </article>
 
-                            <div class="project-card__highlights">
-                                <h4><i class="fas fa-star"></i> Destaques do projeto:</h4>
-                                <ul>
-                                    <li><i class="fas fa-check-circle"></i> Autenticação segura com sessões</li>
-                                    <li><i class="fas fa-check-circle"></i> CRUD completo de transações financeiras</li>
-                                    <li><i class="fas fa-check-circle"></i> Design seguindo padrão MVC</li>
-                                    <li><i class="fas fa-check-circle"></i> Páginas de erro customizadas</li>
-                                </ul>
-                            </div>
+                            <!-- 2. Cidades ESG Inteligentes -->
+                            <article class="carousel__slide project-card" data-category="backend fiap">
+                                <div class="project-card__image">
+                                    <img src="ASSETS/IMG/projects/cidades-esg.svg"
+                                         alt="Cidades ESG Inteligentes" loading="lazy">
+                                    <div class="project-card__overlay">
+                                        <div class="project-card__links">
+                                            <a href="https://github.com/Marcosvilel/cidades-esg-inteligentes"
+                                               class="project-link" target="_blank" rel="noopener"
+                                               aria-label="Ver codigo no GitHub">
+                                                <i class="fab fa-github"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="project-card__content">
+                                    <h3>Cidades ESG Inteligentes</h3>
+                                    <p>
+                                        Solucao em <strong>Python</strong> para monitoramento de indicadores
+                                        ESG (ambientais, sociais e de governanca) em cidades inteligentes.
+                                        Projeto acadêmico FIAP com foco em sustentabilidade urbana.
+                                    </p>
+                                    <div class="project-card__tech-section">
+                                        <div class="project-card__tech-tags">
+                                            <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
+                                            <span class="tech-tag"><i class="fas fa-leaf"></i> ESG</span>
+                                            <span class="tech-tag"><i class="fas fa-city"></i> Smart City</span>
+                                            <span class="tech-tag"><i class="fas fa-microchip"></i> IoT</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
 
-                            <div class="project-card__thanks">
-                                <h4><i class="fas fa-heart"></i> Agradecimentos especiais:</h4>
-                                <p>Esse projeto não seria o mesmo sem a ajuda incrível de:</p>
-                                <div class="thanks-grid">
-                                    <span class="thanks-item">Lucas Emanuel - pelas dicas valiosas em JDBC</span>
-                                    <span class="thanks-item">Rayane Rocha - pelo apoio no design das JSPs</span>
-                                    <span class="thanks-item">Anthony</span>
-                                    <span class="thanks-item">Pedro Henrique</span>
+                            <!-- 3. Challenge LetSing -->
+                            <article class="carousel__slide project-card" data-category="frontend fiap">
+                                <div class="project-card__image">
+                                    <img src="ASSETS/IMG/projects/letsing.svg"
+                                         alt="Challenge LetSing" loading="lazy">
+                                    <div class="project-card__overlay">
+                                        <div class="project-card__links">
+                                            <a href="https://github.com/Marcosvilel/Challenge-LetSing"
+                                               class="project-link" target="_blank" rel="noopener"
+                                               aria-label="Ver codigo no GitHub">
+                                                <i class="fab fa-github"></i>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
+                                <div class="project-card__content">
+                                    <h3>Challenge LetSing</h3>
+                                    <p>
+                                        Challenge FIAP desenvolvido em parceria com a empresa
+                                        <strong>LetSing</strong>. Aplicacao web focada em UX, com HTML5,
+                                        CSS3 e JavaScript para uma plataforma musical interativa.
+                                    </p>
+                                    <div class="project-card__tech-section">
+                                        <div class="project-card__tech-tags">
+                                            <span class="tech-tag"><i class="fab fa-html5"></i> HTML5</span>
+                                            <span class="tech-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
+                                            <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
+                                            <span class="tech-tag"><i class="fas fa-handshake"></i> Parceria</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
 
-                    <!-- Cidades ESG Inteligentes (Python / IoT) -->
-                    <div class="project-card" data-category="backend fiap" data-aos="fade-up" data-aos-delay="100">
-                        <div class="project-card__image">
-                            <img src="ASSETS/IMG/projects/fiap.png" alt="Cidades ESG Inteligentes">
-                            <div class="project-card__overlay">
-                                <div class="project-card__links">
-                                    <a href="https://github.com/Marcosvilel/cidades-esg-inteligentes"
-                                       class="project-link" target="_blank" rel="noopener"
-                                       aria-label="Ver código no GitHub">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-card__content">
-                            <h3>Cidades ESG Inteligentes</h3>
-                            <p>
-                                Solução em <strong>Python</strong> para monitoramento de indicadores
-                                ESG (ambientais, sociais e de governança) aplicados a cidades inteligentes.
-                                Projeto acadêmico FIAP focado em sustentabilidade urbana e IoT.
-                            </p>
-                            <div class="project-card__tech-section">
-                                <div class="project-card__tech-tags">
-                                    <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
-                                    <span class="tech-tag"><i class="fas fa-leaf"></i> ESG</span>
-                                    <span class="tech-tag"><i class="fas fa-city"></i> Smart City</span>
-                                </div>
-                            </div>
                         </div>
                     </div>
 
-                    <!-- App de Reserva de Cadeiras (React / Vercel) -->
-                    <div class="project-card" data-category="frontend fullstack" data-aos="fade-up" data-aos-delay="200">
-                        <div class="project-card__image">
-                            <img src="ASSETS/IMG/projects/fiap.png" alt="App de Reserva de Cadeiras">
-                            <div class="project-card__overlay">
-                                <div class="project-card__links">
-                                    <a href="https://cadeiras-app-vercel.vercel.app"
-                                       class="project-link" target="_blank" rel="noopener"
-                                       aria-label="Ver demo online">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-card__content">
-                            <h3>App de Reserva de Cadeiras</h3>
-                            <p>
-                                Aplicação web <strong>full-stack</strong> para reserva e gerenciamento
-                                de cadeiras em ambientes corporativos, deployada na <strong>Vercel</strong>.
-                                Interface moderna e responsiva com JavaScript.
-                            </p>
-                            <div class="project-card__tech-section">
-                                <div class="project-card__tech-tags">
-                                    <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
-                                    <span class="tech-tag"><i class="fas fa-cloud"></i> Vercel</span>
-                                    <span class="tech-tag"><i class="fas fa-chair"></i> Booking</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <button class="carousel__btn carousel__btn--next" aria-label="Proximo projeto">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
 
-                    <!-- Challenge LetSing (Front-end / HTML) -->
-                    <div class="project-card" data-category="frontend fiap" data-aos="fade-up" data-aos-delay="300">
-                        <div class="project-card__image">
-                            <img src="ASSETS/IMG/projects/fiap.png" alt="Challenge LetSing">
-                            <div class="project-card__overlay">
-                                <div class="project-card__links">
-                                    <a href="https://github.com/Marcosvilel/Challenge-LetSing"
-                                       class="project-link" target="_blank" rel="noopener"
-                                       aria-label="Ver código no GitHub">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-card__content">
-                            <h3>Challenge LetSing</h3>
-                            <p>
-                                Challenge FIAP desenvolvido em parceria com a empresa <strong>LetSing</strong>.
-                                Aplicação web focada em experiência do usuário, com HTML5, CSS3 e
-                                JavaScript para criação de uma plataforma interativa.
-                            </p>
-                            <div class="project-card__tech-section">
-                                <div class="project-card__tech-tags">
-                                    <span class="tech-tag"><i class="fab fa-html5"></i> HTML5</span>
-                                    <span class="tech-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
-                                    <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
-                                    <span class="tech-tag"><i class="fas fa-handshake"></i> Parceria</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Desafio de Testes Automatizados -->
-                    <div class="project-card" data-category="backend fiap" data-aos="fade-up" data-aos-delay="400">
-                        <div class="project-card__image">
-                            <img src="ASSETS/IMG/projects/fiap.png" alt="Desafio de Testes Automatizados">
-                            <div class="project-card__overlay">
-                                <div class="project-card__links">
-                                    <a href="https://github.com/Marcosvilel/-Desafio-de-Testes-Automatizados"
-                                       class="project-link" target="_blank" rel="noopener"
-                                       aria-label="Ver código no GitHub">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-card__content">
-                            <h3>Desafio de Testes Automatizados</h3>
-                            <p>
-                                Projeto focado em <strong>qualidade de software</strong> com automação
-                                de testes. Cobertura de cenários e validação de regras de negócio,
-                                aplicando boas práticas de TDD e CI/CD.
-                            </p>
-                            <div class="project-card__tech-section">
-                                <div class="project-card__tech-tags">
-                                    <span class="tech-tag"><i class="fas fa-vial"></i> QA</span>
-                                    <span class="tech-tag"><i class="fas fa-robot"></i> Automação</span>
-                                    <span class="tech-tag"><i class="fas fa-check-double"></i> TDD</span>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="carousel__dots" id="carousel-dots" role="tablist" aria-label="Selecionar projeto">
+                        <!-- preenchido via JS -->
                     </div>
                 </div>
 
                 <div class="projects__more" data-aos="fade-up">
-                    <a href="pages/projetos.html" class="button button--outline">
-                        <span>Ver Mais Projetos</span>
-                        <i class="fas fa-arrow-right"></i>
+                    <a href="https://github.com/Marcosvilel" class="button button--outline"
+                       target="_blank" rel="noopener">
+                        <span>Ver Mais Projetos no GitHub</span>
+                        <i class="fab fa-github"></i>
                     </a>
                 </div>
             </div>

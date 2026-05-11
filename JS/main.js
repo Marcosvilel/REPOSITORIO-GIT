@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initAOS();
     initSkillBars();
     initProjectFilter();
+    initProjectsCarousel();
     initFormValidation();
     initScrollSpy();
     initParallax();
@@ -278,38 +279,90 @@ function initSkillBars() {
     });
 }
 
-// ===== PROJECT FILTER =====
+// ===== PROJECT FILTER (legado - filtros foram removidos) =====
 function initProjectFilter() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
-    
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Add active class to clicked button
-            button.classList.add('active');
-            
-            const filterValue = button.getAttribute('data-filter');
-            
-            projectCards.forEach(card => {
-                if (filterValue === 'all' || card.getAttribute('data-category').includes(filterValue)) {
-                    card.style.display = 'block';
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'scale(1)';
-                    }, 100);
-                } else {
-                    card.style.opacity = '0';
-                    card.style.transform = 'scale(0.8)';
-                    setTimeout(() => {
-                        card.style.display = 'none';
-                    }, 300);
+    // Mantido como no-op para compatibilidade. Carrossel substituiu os filtros.
+}
+
+// ===== CARROSSEL DE PROJETOS =====
+function initProjectsCarousel() {
+    const carousel = document.getElementById('projects-carousel');
+    if (!carousel) return;
+
+    const track = carousel.querySelector('#carousel-track');
+    const prevBtn = carousel.querySelector('.carousel__btn--prev');
+    const nextBtn = carousel.querySelector('.carousel__btn--next');
+    const dotsContainer = carousel.querySelector('#carousel-dots');
+    const slides = Array.from(track.children);
+
+    if (slides.length === 0) return;
+
+    let currentIndex = 0;
+
+    // Cria dots de paginacao
+    slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'carousel__dot';
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('aria-label', `Ir para projeto ${i + 1}`);
+        dot.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(dot);
+    });
+
+    const dots = Array.from(dotsContainer.children);
+
+    function updateUI(index) {
+        currentIndex = index;
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('is-active', i === index);
+            dot.setAttribute('aria-selected', i === index ? 'true' : 'false');
+        });
+        if (prevBtn) prevBtn.disabled = index === 0;
+        if (nextBtn) nextBtn.disabled = index === slides.length - 1;
+    }
+
+    function goTo(index) {
+        index = Math.max(0, Math.min(index, slides.length - 1));
+        const slide = slides[index];
+        track.scrollTo({
+            left: slide.offsetLeft - track.offsetLeft,
+            behavior: 'smooth'
+        });
+        updateUI(index);
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', () => goTo(currentIndex - 1));
+    if (nextBtn) nextBtn.addEventListener('click', () => goTo(currentIndex + 1));
+
+    // Sincroniza UI quando o usuario faz swipe (debounced)
+    let scrollTimer;
+    track.addEventListener('scroll', () => {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(() => {
+            const trackRect = track.getBoundingClientRect();
+            const trackCenter = trackRect.left + trackRect.width / 2;
+            let closestIndex = 0;
+            let minDistance = Infinity;
+            slides.forEach((slide, i) => {
+                const slideRect = slide.getBoundingClientRect();
+                const slideCenter = slideRect.left + slideRect.width / 2;
+                const distance = Math.abs(slideCenter - trackCenter);
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    closestIndex = i;
                 }
             });
-        });
+            updateUI(closestIndex);
+        }, 100);
     });
+
+    // Suporte a teclado (acessibilidade)
+    carousel.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(currentIndex - 1); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); goTo(currentIndex + 1); }
+    });
+
+    updateUI(0);
 }
 
 // ===== FORM VALIDATION =====
